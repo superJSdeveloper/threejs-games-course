@@ -21,16 +21,26 @@
     <script>
       console.clear();
 
-      const name = "Nik Lever";
+      const name = "Israel Palacios";
+
+      console.log(`name=${name}`);
+      myFunc();
       
       function myFunc(){
-        console.log(`Inside myFunc name=${name}`);
+        console.log(`name=${name} in myFunc`);
   
         if (true){
           let course = "The beginners guide to 3D web game development with ThreeJS";
           const section = 2;
           console.log(`course='${course}' inside if statement`);  
           console.log(`section=${section} inside if statement`);  
+        }
+
+        try{
+          console.log(`course='${course}' outside if statement`);  
+          console.log(`section=${section} outside if statement`);
+        }catch(err){
+          console.error(err.message);
         }
       }
 
