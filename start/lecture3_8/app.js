@@ -57,13 +57,16 @@ class App{
     }
     
     loadGLTF(){
-        const loader = new GLTFLoader().setPath('../../assets/plane');
+        const loader = new GLTFLoader().setPath('../../assets/plane/');
 
         loader.load(
             'microplane.glb',
             gltf => {
                 this.scene.add(gltf.scene);
 
+                const bbox = new THREE.Box3().setFromObject( gltf.scene );
+                console.log(`min:${bbox.min.x.toFixed(2)},${bbox.min.y.toFixed(2)}${bbox.min.z.toFixed(2)} max:${bbox.max.x.toFixed(2)},${bbox.max.y.toFixed(2)}${bbox.max.z.toFixed(2)}`);
+                
                 this.loadingBar.visible = false;
 
                 this.renderer.setAnimationLoop( this.render.bind(this) );
